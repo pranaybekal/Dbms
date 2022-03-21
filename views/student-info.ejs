@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Apply Now </title>
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href='/css/info.css'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div id="preloader"></div>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form action="/student/sinfo" method="POST">
+        <div class="user-details">
+            <div class="input-box">
+              <span class="details">USN</span>
+              <input type="text" placeholder="Enter your usn" name="usn" value="<%= usn %>"  id="hel" required  >
+            </div>
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Locality</span>
+            <input type="text"  placeholder="Enter your locality" name="locality"  id="hel" required  >
+          </div>
+          <div class="input-box">
+            <span class="details">course</span>
+            <input type="text" placeholder="Enter your course" name="course" id="kel" required>
+          </div>
+          <div class="input-box">
+            <span class="details">aadhar</span>
+            <input type="text"  name="aadhar"  placeholder="Enter your aadhar"  id="kil" required>
+          </div>
+          <div class="input-box">
+            <span class="details">College</span>
+            <input type="text" name="college" placeholder="Enter your college name" id="nan" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Describe yourself</span>
+            <input type="text" name="desc" placeholder="Tell something about yourself"  id="pass" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Resume</span>
+            <input type="text" name="resume" placeholder="Link to your resume" required>
+          </div>
+         
+        
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    pre=document.getElementById('preloader');
+    window.addEventListener("load", function(){
+     pre.style.display='none';
+    })
+    
+ </script>
+<!-- <script src="js/info.js"></script> -->
+</body>
+</html>

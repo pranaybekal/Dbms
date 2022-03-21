@@ -1,0 +1,218 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav {
+    display: flex;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 20%);
+    font-family: 'Poppins', sans-serif;
+    height: 92px;
+     align-items: center;
+    padding: 0 60px;
+    /* background-color: ghostwhite; */
+
+}
+
+#signup {
+    background-color: #3723f0;
+    height: 40px;
+    border: none;
+    width: 100px;
+    color: white;
+    border-radius: 10px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+#preloader
+{
+background:rgb(255, 255, 255) url(../img/simple-loader.gif) no-repeat center center;
+position: fixed;
+background-size:18%;
+height: 100vh;
+width: 100%;
+z-index: 100;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+#signup:hover{
+    background-color: #5340ff;
+    height: 40px;
+}
+
+#login{
+   
+    background-color: rgb(242, 242, 242);
+    width: 7rem;
+    border: none;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    
+}
+
+#login:hover{
+    background-color: rgb(219, 220, 221);
+}
+
+
+/* carousel css */
+.slideshow-container {
+    max-width: max-content;
+    position: relative;
+    margin: auto;
+    padding-top: 2px;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  /* carousel ends */
+
+
+
+  /* content */
+  .content
+  {
+    padding: 100px 20px 0px 10px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .conhead
+  {
+    
+      color: #3723f0;
+      
+  }
+
+
+  /* company */
+  .company
+  {
+
+    padding-top: 80px;
+    text-align: center;
+
+  }
+
+#compimg
+{
+  /* max-width: max-content; */
+  width: 1100px;
+  height: 40rem;
+}
+
+footer
+{
+  display: flex;
+  justify-content: space-around;
+  height: 145px;
+  background-color: ghostwhite;
+  padding-top: 3rem;
+  margin-top: 30px;
+}
+
+.center
+{
+  padding-top:100px;
+}
+
+.f2
+{
+
+  color: black; 
+  display: flex;
+  flex-direction: column;
+  cursor:pointer
+  
+}
+

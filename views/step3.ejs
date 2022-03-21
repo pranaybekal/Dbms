@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One last step</title>
+  <link rel="stylesheet" href="/css/step3.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form action="/manager/step3" method="post">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Job Title</span>
+            <input type="text" placeholder="Enter Job Title" id="hel" name="s3title" value="<%= jobtitle %>" required>
+          </div>
+          <div class="input-box"style="margin-top: -17px;margin-right: 35px;">
+            <span class="details">Job Description</span>
+            <textarea  placeholder="Enter Job Description" name="s3desc" id="kel" style="height: 128px;padding-top: 9px;width:625px;"></textarea>
+          </div>
+          <div class="button">
+            <input type="submit" value="Register" onclick="registration()">
+          </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

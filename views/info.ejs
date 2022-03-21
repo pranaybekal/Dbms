@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab - Update by Fantacy Design -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Student info </title>
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href='/css/info.css'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form action="/info" method="POST">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" style="pointer-events: none; cursor:not-allowed;" placeholder="Enter your name" name="name" value="<%= name %>" id="hel" required  >
+          </div>
+          <div class="input-box">
+            <span class="details">Usn</span>
+            <input type="text" placeholder="Enter your usn" name="usn" id="kel" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text"  name="email" style="pointer-events: none;  cursor:not-allowed;" placeholder="Enter your email" value="<%= email %>" id="kil" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" name="phone" placeholder="Enter your number" id="nan" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" name="password" style="pointer-events: none;cursor:not-allowed;" placeholder="Enter your password" value="<%= password %>" id="pass" required>
+          </div>
+          <div class="input-box">
+            <span class="details">DOB</span>
+            <input type="text" name="dob" placeholder="Enter your date of birth" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Branch_id</span>
+            <select name="subject"  class="option">
+              <option disabled="disabled" selected="selected">--choose option</option>
+              <option>CS001</option>
+              <option>EC001</option>
+              <option>MEC001</option>
+              <option>IS001</option>
+              <option>EEE001</option>
+            </select>
+          </div>
+        <div class="sem-details" style="padding-right: 102px;">
+          <input type="radio" name="sem" value="6" id="dot-1">
+          <input type="radio" name="sem" value="7" id="dot-2">
+          <input type="radio" name="sem" value="8" id="dot-3">
+          <span class="gender-title">Sem</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender" value="6">6th</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two" value="7"></span>
+            <span class="gender" value="7">7th</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three" value="8"></span>
+            <span class="gender" value="8">8th</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register" onclick="location.href='/register'">
+        </div>
+      </form>
+    </div>
+  </div>
+<!-- <script src="js/info.js"></script> -->
+</body>
+</html>

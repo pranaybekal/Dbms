@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/studentinfo.css">
+    <title>Student-Details</title>
+</head>
+
+<body>
+    <div id="preloader"></div>
+    <div class="container">
+        <!-- <div class="item header">header</div> -->
+        <div class="item sidebar"
+            style="margin-left: -322px;padding-left: 0px;margin-right: 95px;margin-bottom: -75px;">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <img class="profile_img" src="/img/model2.jpg" alt="" style="margin-top: -143px;">
+                    
+                </div>
+                <div class="card-body" style="margin-bottom: -41px;height: 0.4px;margin-left: -68px;">
+                    <h3 style="text-align: center; padding:30px; padding-left:95px;"><%= student[0].Name %></h3>
+                    <p style="text-align: center; padding-left: 75px;"><%= student[0].Usn %></p>
+                </div>
+            </div>
+         
+        </div>
+        <!-- <div class="item content-1">Content-1</div> -->
+        <div class="item content-2" style="width: 632.8px;margin-left: -244px;margin-bottom: -91px;">
+            <div class="card shadow-sm" style="margin-left: -1px;width: 638.167px;">
+                <div class="card-header bg-transparent border-0">
+                    <h3 class="mb-0" style="margin-left: 9px;"><i class="far fa-clone pr-1"></i>General Information</h3>
+                </div>
+                
+                <div class="card-body pt-0">
+                    <table class="table table-bordered" style="width:100%">
+                        <tr>
+                            <th>Email</th>
+                            <!-- <td >:</td> -->
+                            <td><%= student[0].Email %></td>
+                        </tr>
+                        <tr>
+                            <th>Locatlity</th>
+                            <!-- <td >:</td> -->
+                            <td><%= sinfo[0].locality %></td>
+                        </tr>
+                        <tr>
+                            <th>Course</th>
+                            <!-- <td >:</td> -->
+                            <td><%= sinfo[0].course %></td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <!-- <td >:</td> -->
+                            <td><%= student[0].phone %></td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Aadhar_ Number</th>
+                            <!-- <td >:</td> -->
+                            <td><%= sinfo[0].aadhar %></td>
+                        </tr>
+                        <tr>
+                            <th>College</th>
+                            <!-- <td>:</td> -->
+                            <td><%= sinfo[0].college %></td>
+                        </tr>
+                        <tr>
+                            <th>description</th>
+                            <!-- <td>:</td> -->
+                            <td><%= sinfo[0].description %></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+       
+        <div class="content-4"
+            style="margin-bottom: -409px;margin-top: 435px;margin-right: -141px;margin-left: 205px;padding-left: -17px;border-left-width: 0px;border-left-style: solid;width: 100.5px;height: 37.217px;">
+            <button type="button" id="custom-button"  onclick="window.open('<%= sinfo[0].resume%>'),'_blank'"  style="margin: 72px;width: 100px;">View Resume</button>
+        </div>
+        <form action="/manager/shortlist" method="POST">
+        <div class="content-5"
+            style="margin-bottom: -409px;margin-top: 435px;margin-right: -105px;margin-left: 167px;padding-left: -17px;border-left-width: 0px;border-left-style: solid;width: 111.5px;height: 37.217px;">
+            <button type="submit" id="custom-but" name="short" value="<%= sinfo[0].usn%>" style="margin: 72px;width: 100px;">Add to shortlist</button>
+        </form>
+        </div>
+</div>
+    </div>
+</body>
+<script>
+    pre=document.getElementById('preloader');
+    window.addEventListener("load", setTimeout(function(){
+     pre.style.display='none';
+    },2500))
+    
+ </script>
+</html>

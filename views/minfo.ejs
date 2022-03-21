@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab - Update by Fantacy Design -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Responsive Registration Form | Fantacy Design </title>
+    <link rel="stylesheet" href="/css/minfo.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Tell us about yourself</div>
+    <div class="content">
+      <form action="/manager/detail" method="POST">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Company Name</span>
+            <input type="text" placeholder="Enter company Name" value="<%= cname %>" name="cname" id="hel" required >
+          </div>
+          <div class="input-box">
+            <span class="details">Location</span>
+            <input type="text" placeholder="Enter your location"  name="loc" id="kel" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Manager Name</span>
+            <input type="text" placeholder="Enter your name" name="mname" id="kil" required  value="<%= name %>">
+          </div>
+          <div class="input-box">
+            <span class="details">Job Title</span>
+            <input type="text" placeholder="Enter job title you're looking for" id="nan" name="jtitle" required>
+          </div>
+          <div class="input-box">
+            <span class="details">No. of vacancies</span>
+            <input type="text" placeholder="Enter No. of vacancies" id="pass" name="vacancies" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Specialization</span>
+            <input type="text" placeholder="Specialization" name="specialization" required>
+          </div>
+        <div class="button">
+          <input type="submit" value="Register" onclick="registration()">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>

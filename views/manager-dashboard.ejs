@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/manager-dashboard.css">
+    <title>Company dashboard</title>
+</head>
+
+<body>
+    <div id="preloader"></div>
+    <nav>
+        <div id="logo">
+            <h1><span style="color: #3210c9;cursor: pointer;">Place-</span>X</h1>
+        </div>
+        <div id="menu">
+            <ul>
+                <li>Home</li>
+                <li onclick="window.location.href='#con'">Student Data</li>
+                <!-- <li <a href="#con"></a>>Job_avail</li> -->
+                <!-- <li onclick="window.location.href='#practice'">Practice</li> -->
+                <!-- <li>Profile</li> -->
+                <li id="logout" onclick="window.location.href='/manager/logout'">Logout</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="welcome" style="font-family: 'Courier New', Courier, monospace;">
+            <h1 style="font-family: 'Poppins', sans-serif; padding:25px; text-align: center; padding-top: 40px;">Welcome
+                Back <%= username %>
+            </h1>
+            <div class="first">
+                <div class="card1" style="background-color: aqua;">
+                    <div id="text1">
+                        <h1>Something must be displayed here</h1>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="card2">
+                    <img src="phd.jpg" style="width: 60px; text-align: left;" alt="" srcset="">
+                    <h1>Total students Applied: <%= records.length %></h1>
+                    <!-- <h1></h1> -->
+
+
+                </div>
+            </div>
+            <div id="con">
+                <h1 style="font-size: 25px;margin-left: 110px;">Applied Students:</h1>
+                <!-- table -->
+                <form method="post" action="/manager/sinfo">
+                    <table name="table" class="content">
+                        <thead>
+                            <tr>
+                                <th>Sl_no</th>
+                                <th>Usn</th>
+                                <th>Student_Name</th>
+                                <th>Email</th>
+                                <th>Branch</th>
+                                <th>Semester</th>
+                                <th>Apply Here</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            <% if(records.length> 0){ %>
+
+                                <% for ( var i=0 ; i < records.length ; i++){ %>
+
+                                    <tr>
+                                        <td>
+                                            <%= i+1 %>
+                                        </td>
+                                        <td>
+                                            <%= records[i].Usn%>
+                                        </td>
+                                        <td>
+                                            <%= records[i].Name%>
+                                        </td>
+                                        <td>
+                                            <%= records[i].Email%>
+                                        </td>
+                                        <td>
+                                            <%= records[i].Br_name %>
+                                            
+                                        </td>
+                                        <td>
+                                            <%= records[i].Sem%>
+                                        </td>
+                                        <td>
+
+                                            <button type="submit" value="<%= records[i].Usn %>"  name="usn" id="apply" style="background-color: rgb(0, 189, 0);  width: 85px;height: 42px;border: 0;border-radius: 6px; color: white; cursor: pointer;">Show Details</button>
+                                        </td>
+                                       
+                                        </td>
+                                    </tr>
+
+                                    <% } %>
+
+                                        <% } %>
+
+
+
+                                        <% if(records.length<= 0){ %>
+
+                                           
+            
+                                                <tr>
+                                                    <td>
+                                                        
+                                                    </td>
+                                                    <td>
+                                                        
+                                                    </td>
+                                                    <td>
+                                                        
+                                                    </td>
+                                                    <td>
+                                                        No Data Available
+                                                    </td>
+                                                    <td>
+                                                        
+                                                        
+                                                    </td>
+                                                    <td>
+                                                        
+                                                    </td>
+                                                    <td>
+            
+                                                       
+                                                    </td>
+                                                   
+                                                    </td>
+                                                </tr>
+            
+                                               
+            
+                                                    <% } %>
+
+
+
+
+                        </tbody>
+                </form>
+                <!-- table ends -->
+            </div>
+
+        </div>
+      
+    <script src="/routes/signup.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+            pre=document.getElementById('preloader');
+            window.addEventListener("load",setTimeout (function(){
+             pre.style.display='none';
+            },2500))
+            
+         </script>
+</body>
+
+</html>

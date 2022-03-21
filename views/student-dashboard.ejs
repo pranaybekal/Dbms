@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/student-dashboard.css">
+    <title>Student-dashboard</title>
+</head>
+
+<body>
+    <div id="preloader"></div>
+    <nav>
+        <div id="logo">
+            <h1><span style="color: #3210c9;cursor: pointer;">Place-</span>X</h1>
+        </div>
+        <div id="menu">
+            <ul>
+                <li>Home</li>
+                <li onclick="window.location.href='#con'">Job_avail</li>
+                <!-- <li <a href="#con"></a>>Job_avail</li> -->
+                <li onclick="window.location.href='#practice'">Practice</li>
+                <li onclick="window.location.href='/student/sinfo'">Profile</li>
+                <li id="logout" onclick="window.location.href='/student/logout'">Logout</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="welcome" style="font-family: 'Courier New', Courier, monospace;">
+            <h1 style="font-family: 'Poppins', sans-serif; padding:25px; text-align: center; padding-top: 40px;">Welcome
+                Back <%= username %>
+            </h1>
+            <% if(count==1){ %> 
+                <div class="alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    Data inserted successfully :)
+                  </div>
+            <% } %>
+            <% if(count==2){ %> 
+                <div class="alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    Profile updated successfully :)
+                  </div>
+            <% } %>
+            <% if(count==3){ %> 
+                <div class="alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    Applied successfully :)
+                  </div>
+            <% } %>
+            <% if(count==4){ %> 
+                <div class="alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    Already applied!!!
+                  </div>
+            <% } %>
+            <div class="first">
+                <% if(short.length> 0){ %> 
+                <div class="card1" onclick="window.location.href='#short'" style="background-color: aqua;">
+                    <div id="text1">
+                        
+                        <h1>You have been shortlisted By <%=short.length %> Companies</h1>
+                        <br>
+                        <span>congratulations!!!</span>
+                       
+                        
+
+                       
+                    </div>
+                </div>
+                <% } %>
+
+                <% if(short.length<= 0){ %> 
+                    <div class="card1" style="background-color: rgb(241, 42, 42);">
+                        <div id="text1">
+                            
+                            <h1>You have not been shortlisted so far...</h1>
+                            <br>
+                            <span>Don't loose Hopes!!! Apply for jobs below</span>
+                           
+                            
+    
+                           
+                        </div>
+                    </div>
+                    <% } %>
+
+                <div class="card2">
+                    <img src="phd.jpg" style="width: 60px; text-align: left;" alt="" srcset="">
+                    <h1>Total Jobs Available:<br><%= jcount %> and more..</h1>
+                    <!-- <h1></h1> -->
+
+
+                </div>
+            </div>
+            <div id="con">
+                <h1 style="font-size: 25px;margin-left: 110px;">Job_availabilities:</h1>
+                <!-- table -->
+                <form method="post" action="/student/apply">
+                    <table name="table" class="content">
+                        <thead>
+                            <tr>
+                                <th>Sl_no</th>
+                                <th>Company_Name</th>
+                                <th>Job_title</th>
+                                <th>Description</th>
+                                <th>Specialization</th>
+                                <th>Apply Here</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            <% if(records.length> 0){ %>
+
+                                <% for ( var i=0 ; i < records.length ; i++){ %>
+
+                                    <tr>
+                                        <td>
+                                            <%= i+1 %>
+                                        </td>
+                                        <td>
+                                            <%= cat[i].comp_name%>
+                                        </td>
+                                        <td>
+                                            <%= cat[i].Job_title%>
+                                        </td>
+                                        <td>
+                                            <%= cat[i].job_description%>
+                                        </td>
+                                        <td>
+                                            <%= special[i].Specialization%>
+                                        </td>
+                                        <td>
+
+                                            <button type="submit"  name="h" id="apply" value="'<%= usn %>','<%= cat[i].Job_title %>'" onclick="document.getElementById(apply).innerText='Applied'" style="background-color: rgb(0, 189, 0);  width: 85px;height: 42px;border: 0;border-radius: 6px; color: white; cursor: pointer;">Apply</button>
+                                        </td>
+                                       
+                                        </td>
+                                    </tr>
+
+                                    <% } %>
+
+                                        <% } %>
+                                        <% if(records.length<= 0){ %>
+
+                                           
+            
+                                            <tr>
+                                                <td>
+                                                    
+                                                </td>
+                                                <td>
+                                                    
+                                                </td>
+                                                <td>
+                                                    
+                                                </td>
+                                                <td>
+                                                    No Data Available
+                                                </td>
+                                                <td>
+                                                    
+                                                    
+                                                </td>
+                                                <td>
+                                                    
+                                                </td>
+                                                <td>
+        
+                                                   
+                                                </td>
+                                               
+                                                </td>
+                                            </tr>
+        
+                                           
+        
+                                                <% } %>
+
+
+
+
+                        </tbody>
+                    </table>
+                </form>
+                <!-- table ends -->
+
+                <!-- shortlisted -->
+                <div id="short">
+                <h1 style="font-size: 25px;margin-left: 110px;">You have been shortlisted for :</h1>
+                <!-- table -->
+                <form method="post" action="/apply">
+                    <table name="table" class="content">
+                        <thead>
+                            <tr>
+                                <th>Sl_no</th>
+                                <th>Company_Name</th>
+                                <th>Job_title</th>
+                                <th>Location</th>
+                                <th>Manager Name</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            <% if(short.length> 0){ %>   
+
+                                <% for ( var i=0 ; i < short.length ; i++){ %>
+
+                                    <tr>
+                                        <td>
+                                            <%= i+1 %>
+                                        </td>
+                                        <!-- <td>
+                                            <%= short[i].Usn%>
+                                        </td> -->
+                                        <td>
+                                            <%= short[i].Cmp_name%>
+                                        </td>
+                                        <td>
+                                            <%= short[i].job_title%>
+                                        </td>
+                                        <td>
+                                            <%= cdata[i].Location%>
+                                        </td>
+                                        <td>
+                                            <%= cdata[i].Manager%>
+                                            <!-- <button type="submit"  name="h" id="apply" value="'<%= usn %>','<%= cat[i].Job_title %>'" onclick="document.getElementById(apply).innerText='Applied'" style="background-color: rgb(0, 189, 0);  width: 85px;height: 42px;border: 0;border-radius: 6px; color: white; cursor: pointer;">Apply</button> -->
+                                        </td>
+                                       
+                                        </td>
+                                    </tr>
+
+                                    <% } %>
+
+                                        <% } %>
+                                        <% if(short.length<= 0){ %>
+
+                                           
+            
+                                            <tr>
+                                                
+                                                
+                                                <td>
+                                                    
+                                                </td>
+                                                <td>
+                                                   
+                                                </td>
+                                                <td>
+                                                    
+                                                    No Data Available
+                                                </td>
+                                                <td>
+                                                   
+                                                </td>
+                                                <td>
+        
+                                                   
+                                                </td>
+                                               
+                                                </td>
+                                            </tr>
+        
+                                           
+        
+                                                <% } %>
+
+
+
+
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+                <!-- shortlist ends -->
+                
+            </div>
+
+        </div>
+        <div id="practice">
+            <h1 style="font-family: 'Poppins', sans-serif;font-size: 25px;margin-left: 110px;">Practice</h1>
+        </div>
+        <div class="cards" style="font-family: 'Poppins', sans-serif;">
+            <div class="card" style="margin-right: 61px;">
+                <div class="card-image hacker-1">
+                    <img src="/img/HackerRankIcon.png"
+                        style="border-radius: 15px 15px 0 0;width: 269.85px;height: 170px;">
+                </div>
+                <h2>HackerRank</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem temporibus fug </p>
+                <a href="https://www.hackerrank.com/auth/login" class="card-btn">Visit <span>&rarr;</span></a>
+            </div>
+            <div class="card" style="margin-right: 61px;">
+                <div class="card-image hacker-2">
+                    <img src="/img/geeks.png" style="border-radius: 15px 15px 0 0;width: 269.75px;height: 171.75px;">
+                </div>
+                <h2>GeeksforGeeks</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem quo totam magnaopt</p>
+                <a href="https://www.geeksforgeeks.org/" class="card-btn">Visit <span>&rarr;</span></a>
+            </div>
+            <div class="card" style="margin-right: 61px;">
+                <div class="card-image hacker-3">
+                    <img src="/img/d.png" style="border-radius: 15px 15px 0 0;width: 270.85px;height: 170px;">
+                </div>
+                <h2>SolidWorks</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam iure animi repellat do</p>
+                <a href="" class="card-btn">Visit <span>&rarr;</span></a>
+            </div>
+        </div>
+        <div class="cards" style="font-family: 'Poppins', sans-serif;margin-top: 42px;">
+            <div class="card" style="margin-right: 61px;">
+                <div class="card-image hacker-1">
+                    <img src="/img/arduino.png"
+                        style="border-radius: 15px 15px 0 0;width: 269.85px;height: 170px;">
+                </div>
+                <h2>Arduino CC</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem temporibus fug </p>
+                <a href="https://create.arduino.cc/projecthub/Hack-star-Arduino/arduino-simulator-2022-learn-arduino-programming-cda978" class="card-btn">Visit <span>&rarr;</span></a>
+            </div>
+            <div class="card" style="margin-right: 61px;">
+                <div class="card-image hacker-2">
+                    <img src="/img/w3.jpg" style="border-radius: 15px 15px 0 0;width: 269.75px;height: 171.75px;">
+                </div>
+                <h2>W3 Schools</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem quo totam magnaopt</p>
+                <a href="https://www.geeksforgeeks.org/" class="card-btn">Visit <span>&rarr;</span></a>
+            </div>
+            <div class="card" style="margin-right: 61px;">
+                <div class="card-image hacker-3">
+                    <img src="/img/AUO.jpg" style="border-radius: 15px 15px 0 0;width: 269.75px;height: 171.75px;">
+                </div>
+                <h2>Auto-CAD</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam iure animi repellat do</p>
+                <a href="https://www.udemy.com/course/autocad-2d-and-3d-practice-drawings/" class="card-btn">Visit <span>&rarr;</span></a>
+            </div>
+        </div>
+        <footer>
+            <div>
+            <h1><span style="color: #3210c9;cursor: pointer;">Place-</span>X</h1>
+        
+            <h5>Mangalore, Karnataka, India</h5>
+        </div>
+            <div class="center">
+                <h5>Copyright © 2022-2042. All rights reserved.</h5>
+            </div>
+        
+            <div class="f2">
+                <span href="Student Login">Login</span>
+                <span href="Student Login">Signup</span>
+                <span href="Terms">Privacy Policy</span>
+            </div>
+        </footer>
+
+
+
+
+
+    </div>
+    <script>
+       pre=document.getElementById('preloader');
+       window.addEventListener("load", setTimeout(function(){
+        pre.style.display='none';
+       },3000))
+       
+    </script>
+    <script src="/js/student-dashboard"></script>
+    <script src="/routes/signup.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</body>
+
+</html>
