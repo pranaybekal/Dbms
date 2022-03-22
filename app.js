@@ -46,17 +46,17 @@ app.use(session({
 
 
 
-connection.getConnection()
-    .then(conn=>
-        {
-            console.log("Connected")
-        })
-        .catch(err=>
-            {
-                console.log("error "+err);
-            })
+// connection.getConnection()
+//     .then(conn=>
+//         {
+//             console.log("Connected")
+//         })
+//         .catch(err=>
+//             {
+//                 console.log("error "+err);
+//             })
 
-            module.exports= connection;
+//             module.exports= connection;
 
 
 // --------------------------------------------------------------------------------------------------------------
