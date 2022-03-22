@@ -35,14 +35,14 @@ app.use(session({
 
 // db connections
 
-const connection = mariadb.createPool({
-    host: '127.0.0.1', 
-    user:'root', 
-    password: 'password',
-    database: 'placex',
-    connectionLimit: 5,
-    multipleStatements: true
-});
+// const connection = mariadb.createPool({
+//     host: '127.0.0.1', 
+//     user:'root', 
+//     password: 'password',
+//     database: 'placex',
+//     connectionLimit: 5,
+//     multipleStatements: true
+// });
 
 
 
