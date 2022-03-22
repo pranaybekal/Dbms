@@ -41,7 +41,7 @@ app.use(session({
 //     password: 'password',
 //     database: 'placex',
 //     connectionLimit: 5,
-//     multipleStatements: true
+//     multipleStatements: true 
 // });
 
 

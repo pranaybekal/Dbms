@@ -22,6 +22,7 @@
             <ul>
                 <li>Home</li>
                 <li onclick="window.location.href='#con'">Student Data</li>
+                <li onclick="window.location.href='/manager/delete-profile'">Delete Profile</li>
                 <!-- <li <a href="#con"></a>>Job_avail</li> -->
                 <!-- <li onclick="window.location.href='#practice'">Practice</li> -->
                 <!-- <li>Profile</li> -->
@@ -32,12 +33,12 @@
     <div class="container">
         <div class="welcome" style="font-family: 'Courier New', Courier, monospace;">
             <h1 style="font-family: 'Poppins', sans-serif; padding:25px; text-align: center; padding-top: 40px;">Welcome
-                Back <%= username %>
+                Back <%= cmp %>
             </h1>
             <div class="first">
                 <div class="card1" style="background-color: aqua;">
                     <div id="text1">
-                        <h1>Something must be displayed here</h1>
+                        <h1>Welcome <%= username %>e</h1>
                         <span></span>
                     </div>
                 </div>

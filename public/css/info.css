@@ -115,12 +115,17 @@ form .input-box span.details{
  }
  form .button{
    height: 45px;
-   margin: 5px  0;
+   margin: 20px  0 15px;
  }
- form .button input{
+ form .button1{
+  height: 45px;
+  margin: 5px  0;
+}
+ form .button1 input{
    height: 48px;
    width: 630px;
    border-radius: 5px;
+   text-align: center;
    border: none;
    color: rgb(211, 211, 211);
    font-size: 18px;
@@ -128,19 +133,43 @@ form .input-box span.details{
    letter-spacing: 1px;
    cursor: pointer;
    transition: all 0.3s ease;
-   background-color: rgb(35, 35, 179);
+   background-color: rgb(179, 35, 35);
    /* background-color: #fc5c7d;
 background-image: linear-gradient(62deg, #fc5c7d 0%, #6a82fb 100%); */
 
  }
- form .button input:hover{
+ form .button1 input:hover{
   /* transform: scale(0.99); */
   /* background-color: #fc5c7d;
 background-image: linear-gradient(250deg, #fc5c7d 0%, #6a82fb 100%); */
-background-color: rgb(35, 35, 158);
+background-color: rgb(158, 35, 35);
 color: white;
 
   }
+  form .button input{
+    height: 48px;
+    width: 630px;
+    border-radius: 5px;
+    border: none;
+    color: rgb(211, 211, 211);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: rgb(35, 35, 179);
+    /* background-color: #fc5c7d;
+ background-image: linear-gradient(62deg, #fc5c7d 0%, #6a82fb 100%); */
+ 
+  }
+  form .button input:hover{
+   /* transform: scale(0.99); */
+   /* background-color: #fc5c7d;
+ background-image: linear-gradient(250deg, #fc5c7d 0%, #6a82fb 100%); */
+ background-color: rgb(35, 35, 158);
+ color: white;
+ 
+   }
  @media(max-width: 584px){
  .container{
   max-width: 100%;

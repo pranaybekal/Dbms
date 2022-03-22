@@ -152,49 +152,62 @@ router.get('/signup/success', (req, res) => {
 
 router.post('/mlogin', function (request, response) {
     var cid = (request.body.clid);
-        var password = (request.body.clpassword);
+    var password = (request.body.clpassword);
     if (cid && password) {
-        connection.query('SELECT password FROM cauth WHERE cid = ?', [cid])
-            .then(ress => {
-                // console.log(dat[0].password);
-                hash = ress[0].password;
+
+        connection.query('SELECT * FROM cauth WHERE cid = ?', [cid])
+        .then(reslts => {
+
+            if (reslts.length > 0) {
+                    connection.query('SELECT password FROM cauth WHERE cid = ?', [cid])
+                        .then(ress => {
+                
+
+                            hash = ress[0].password;
 
 
-                bcrypt.compare(password, hash, function (err, result) {
-                    if (result == true) {
+                            bcrypt.compare(password, hash, function (err, result) {
+                                if (result == true) {
 
-                        connection.query('SELECT * FROM cauth WHERE cid = ?', [cid])
-                            .then(results => {
+                                    connection.query('SELECT * FROM cauth WHERE cid = ?', [cid])
+                                        .then(results => {
 
-                                if (results.length > 0) {
-                                    // console.log(results)
-                                    request.session.loggedin = true;
-                                    request.session.username = cid;
-                                    response.redirect('/manager/manager-dashboard')
+                                            if (results.length > 0) {
+                                                // console.log(results)
+                                                request.session.loggedin = true;
+                                                request.session.username = cid;
+                                                response.redirect('/manager/manager-dashboard')
 
 
+
+                                            }
+
+                                            else {
+                                                response.send('Incorrect Username and/or Password!');
+                                            }
+                                            response.end();
+                                        })
 
                                 }
-
                                 else {
                                     response.send('Incorrect Username and/or Password!');
                                 }
-                                response.end();
                             })
-
+                        }, err => {
+                            response.send("No such user found")
+                        });
                     }
-                    else {
-                        response.send('Incorrect Username and/or Password!');
-                    }
-                })
-            }, err => {
-                response.send("No such user found")
-            });
+                    else{
+                        response.send("No Such User Found!!!")
+                    }})
+                }
+                
+        
 
-    } else {
-        response.send('Please enter Username and Password!');
-        response.end();
-    }
+             else {
+                response.send('Please enter Username and Password!');
+                response.end();
+            }
 
 
 })
@@ -212,9 +225,14 @@ router.get('/manager-dashboard', (req, res) => {
                     connection.query('select *  from student,branch where B_id=Bid and usn in(select usn from applies_for where job_title in(select job_title from job_category where comp_name in (SELECT company FROM cauth WHERE cid = ? )))', [req.session.username])
                         .then(records => {
                             // console.log(records)
+                            connection.query('SELECT company from cauth where cid=(?)', [req.session.username])
+                                .then(resss => {
+                                    res.render('manager-dashboard', { username: result[0].manager_name, records: records, cmp: resss[0].company })
+
+                                })
 
 
-                            res.render('manager-dashboard', { username: result[0].manager_name, records: records })
+
 
 
 
@@ -228,6 +246,19 @@ router.get('/manager-dashboard', (req, res) => {
     }
     // select *  from student where usn in(select usn from applies_for where job_title in(select job_title from job_category where comp_name='gulugulu'))
 
+})
+
+router.get('/delete-profile', (req, response) => {
+    connection.query('select company from cauth where cid=(?)', [req.session.username])
+        .then(res => {
+            connection.query('delete from company where Comp_name=(?)', [res[0].company])
+                .then(ress => {
+                    connection.query("delete from cauth where cid=(?)", [req.session.username])
+                        .then(resss => {
+                            response.send("Profile Deleted!!!")
+                        })
+                })
+        })
 })
 
 
