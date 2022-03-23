@@ -29,13 +29,17 @@ nav {
 
 #preloader
 {
-background:rgb(255, 255, 255) url(../img/simple-loader.gif) no-repeat center center;
+background:rgb(255, 255, 255) url(../img/loader.gif) no-repeat center center;
 position: fixed;
 background-size:18%;
 height: 100vh;
 width: 100%;
 z-index: 100;
+
+animation-name: fade;
 }
+
+
 
 body{
     overflow-x: hidden;
@@ -137,27 +141,32 @@ body{
   .active, .dot:hover {
     background-color: #717171;
   }
+  .notsup
+  {
+    display: none;
+  }
   
   /* Fading animation */
   .fade {
     -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
+    -webkit-animation-duration: 3s;
     animation-name: fade;
-    animation-duration: 1.5s;
+    animation-duration: 3s;
   }
   
   @-webkit-keyframes fade {
-    from {opacity: .4}
+    from {opacity: 0}
     to {opacity: 1}
   }
   
   @keyframes fade {
-    from {opacity: .4}
+    from {opacity: 0}
     to {opacity: 1}
   }
 
   /* carousel ends */
 
+ 
 
 
   /* content */
@@ -209,6 +218,7 @@ footer
 .center
 {
   padding-top:100px;
+  padding-right: 184px;
 }
 
 .f2
@@ -221,3 +231,58 @@ footer
   
 }
 
+/* end  of desktop view :) */
+
+
+/* mobile view */
+@media only screen and (max-width: 759px) {
+*{
+  /* background-color: black; */
+}
+.container
+{
+  display: none;
+}
+.notsup
+{
+  text-align: center;
+    display: block;
+    top: 45%;
+    font-size: 13px;
+    position: absolute;
+}
+
+footer
+{
+  display: none;
+}
+  
+
+}
+
+/* tab view */
+
+@media only screen and (min-width: 760px) and (max-width: 1023px) {
+
+  *{
+    /* background-color: black; */
+  }
+  .container
+  {
+    display: none;
+  }
+  .notsup
+  {
+    text-align: center;
+      display: block;
+      top: 45%;
+    
+      position: absolute;
+  }
+  
+  footer
+  {
+    display: none;
+  }
+
+}

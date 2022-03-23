@@ -145,9 +145,10 @@ router.post('/sinfo', (req, res) => {
     connection.query("INSERT INTO sinfo values(?,?,?,?,?,?,?)", [usn, locality, course, aadhar, college, desc, resume])
         .then(results => {
             count = 1;
-
+            // console.log(results)
             res.redirect('/student/student-dashboard')
         }, error => {
+            // console.log(error)
             count = 2;
             connection.query("Update sinfo set locality=(?),course=(?),aadhar=(?),college=(?),description=(?),resume=(?) where usn=(?)", [locality, course, aadhar, college, desc, resume, usn])
                 .then(resu => {
@@ -163,7 +164,7 @@ router.get('/delete-profile', (req, res) => {
     connection.query("delete from student where Email=(?)", [req.session.username])
         .then(ress => {
             connection.query("delete from auth where email=(?)", [req.session.username])
-                .then(res => {
+                .then(resq => {
                     res.send("Profile Deleted Successfully")
                 })
 

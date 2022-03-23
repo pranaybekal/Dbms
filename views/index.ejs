@@ -9,108 +9,114 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/style.css">
     <title>Place-X</title>
 </head>
 
 <body>
-    <div id="preloader"></div>
-    <nav>
-        <h1><span style="color: #3210c9;cursor: pointer;">Place-</span>X</h1>
-        <div>
-            <button id="login" onclick="location.href='/manager/register'">Company</button>
-            <button onclick="location.href='/register'" id="signup">Student</button>
-        </div>
-    </nav>
-    <!-- carousel start here -->
-    <div class="slideshow-container">
-
-        <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade">
-            <img src="img/carousel1.jpg" style="width:100%">
-            <div class="text"></div>
-        </div>
-
-        <!-- Next and previous buttons -->
+    <div class="notsup">
+        <h1>Please Use a Laptop/Desktop to view this content</h1>
     </div>
-    <br>
+    <div class="container">
+        <div id="preloader"></div>
+        <nav>
+            <h1><span style="color: #3210c9;cursor: pointer;">Place-</span>X</h1>
+            <div>
+                <button id="login" onclick="location.href='/manager/register'">Company</button>
+                <button onclick="location.href='/register'" id="signup">Student</button>
+            </div>
+        </nav>
+        <!-- carousel start here -->
+        <div class="slideshow-container">
 
-    <!-- The dots/circles -->
-    <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
-    <!-- carousel ends here -->
-    <div class="content">
-        <div class="studentimg">
-            <img src="/img/school.jpg" style="width:100%;" alt="">
-        </div>
-        <div style="margin: bottom 25px;">
-            <h1 class="conhead">INSTRUCTIONS TO STUDENTS</h1>
-            <p>
-                <br>
-            <ul style="padding-left:30px;">
-                <li>Click on Student</li>
-                <li>Enter your details and signup</li>
-                <li>Use the same credentials to login</li>
-                <li>Now u can see all the available jobs</li>
-                <li>Make sure that you have uploaded all your details before applying for jobs</li>
-                <li>You can apply for jobs in which you're interested in</li>
-                <li>You can also change your account details in your profile section</li>
-            </ul>
-            </p>
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <img src="img/carousel1.jpg" style="width:100%">
+                <div class="text"></div>
+            </div>
 
-            <br>
-        </div>
-        <div>
-            <h1 class="conhead">INSTRUCTIONS TO COMPANIES</h1>
-            <br>
-            <p>
-            <ul style="padding-left: 30px;">
-                <li>Click on Company</li>
-                <li>Enter your credentials and signup</li>
-                <li>Use the same credentials to login</li>
-                <li>Now you can see all the applied students list</li>
-                <li>You can view their details by clicking on 'see details'</li>
-                <li>You can also view their resume</li>
-                <li>You can also shortlist the suitable candidates and let them know about it.</li>
-            </ul>
-            </p>
-        </div>
-        <div class="companyimg">
-            <img src="/img/companyy.jpg" alt="" srcset="">
+            <!-- Next and previous buttons -->
         </div>
         <br>
-        <!-- company -->
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+        <!-- carousel ends here -->
+        <div class="content">
+            <div class="studentimg">
+                <img src="/img/school.jpg" style="width:100%;" alt="">
+            </div>
+            <div style="margin: bottom 25px;">
+                <h1 class="conhead">INSTRUCTIONS TO STUDENTS</h1>
+                <p>
+                    <br>
+                <ul style="padding-left:30px;">
+                    <li>Click on Student</li>
+                    <li>Enter your details and signup</li>
+                    <li>Use the same credentials to login</li>
+                    <li>Now u can see all the available jobs</li>
+                    <li>Make sure that you have uploaded all your details before applying for jobs</li>
+                    <li>You can apply for jobs in which you're interested in</li>
+                    <li>You can also change your account details in your profile section</li>
+                </ul>
+                </p>
+
+                <br>
+            </div>
+            <div>
+                <h1 class="conhead">INSTRUCTIONS TO COMPANIES</h1>
+                <br>
+                <p>
+                <ul style="padding-left: 30px;">
+                    <li>Click on Company</li>
+                    <li>Enter your credentials and signup</li>
+                    <li>Use the same credentials to login</li>
+                    <li>Now you can see all the applied students list</li>
+                    <li>You can view their details by clicking on 'see details'</li>
+                    <li>You can also view their resume</li>
+                    <li>You can also shortlist the suitable candidates and let them know about it.</li>
+                </ul>
+                </p>
+            </div>
+            <div class="companyimg">
+                <img src="/img/companyy.jpg" alt="" srcset="">
+            </div>
+            <br>
+            <!-- company -->
 
 
+        </div>
+        <div class="company">
+            <h1 class="conhead" style="text-align: center">Our Companies</h1>
+            <img src="img/Company.png" alt="Company image" id="compimg">
+        </div>
     </div>
-    <div class="company">
-        <h1 class="conhead" style="text-align: center">Our Companies</h1>
-        <img src="img/Company.png" alt="Company image" id="compimg">
-    </div>
 
-    <footer>
-        <div>
-            <h2><span style="color: #3210c9;cursor: pointer;">Place-</span>X</h2>
-
-            <h5>Mangalore, Karnataka, India</h5>
-            <h5>Copyright © 2022-2042. All rights reserved.</h5>
-        </div>
-        <div class="center">
-            <h5 style="text-align: center; padding-top: 5px;">Made with ❤️ by  Udith Bekal</h5>
-        </div>
-
-        <div class="f2">
-            <span href="Student Login">Login</span>
-            <span href="Student Login">Signup</span>
-            <span href="Terms">Privacy Policy</span>
-        </div>
-    </footer>
 
 </body>
+<footer>
+    <div style="line-height: 1.5;">
+        <h2><span style="color: #3210c9;cursor: pointer;">Place-</span>X</h2>
+
+        <h5>Mangalore, Karnataka, India</h5>
+        <h5>Copyright © 2022-2042. All rights reserved.</h5>
+    </div>
+    <div class="center">
+        <h5 style="text-align: center; padding-top: 5px;">Made with ❤️ by Udith Bekal</h5>
+    </div>
+
+    <div class="f2">
+        <span href="Student Login">Login</span>
+        <span href="Student Login">Signup</span>
+        <span href="Terms">Privacy Policy</span>
+    </div>
+</footer>
+
 <script src="js/carousel.js"></script>
 <script>
     pre = document.getElementById('preloader');

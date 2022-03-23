@@ -35,28 +35,28 @@ app.use(session({
 
 // db connections
 
-// const connection = mariadb.createPool({
-//     host: '127.0.0.1', 
-//     user:'root', 
-//     password: 'password',
-//     database: 'placex',
-//     connectionLimit: 5,
-//     multipleStatements: true 
-// });
+const connection = mariadb.createPool({
+    host: '127.0.0.1', 
+    user:'root', 
+    password: 'password',
+    database: 'placex',
+    connectionLimit: 5,
+    multipleStatements: true 
+});
 
 
 
-// connection.getConnection()
-//     .then(conn=>
-//         {
-//             console.log("Connected")
-//         })
-//         .catch(err=>
-//             {
-//                 console.log("error "+err);
-//             })
+connection.getConnection()
+    .then(conn=>
+        {
+            console.log("Connected")
+        })
+        .catch(err=>
+            {
+                console.log("error "+err);
+            })
 
-//             module.exports= connection;
+            module.exports= connection;
 
 
 // --------------------------------------------------------------------------------------------------------------
@@ -74,6 +74,7 @@ const register= require('./routes/register');
 const signup = require('./routes/signup');
 const info = require('./routes/info');
 const apply = require('./routes/apply');
+// const err404 = require('./routes/404');
 
 // const signupsuccess = require('./routes/signupsuccess')
 
@@ -91,8 +92,10 @@ app.use('/manager',manager)
 app.use('/img',img)
 
 
-
-
+// 404
+app.use(function(req,res){
+    res.status(404).render('404');
+});
 
 // ------------------------------------------------------------------------------------------------------------
 // listen  op

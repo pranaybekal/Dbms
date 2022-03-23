@@ -12,3 +12,10 @@ function showSlides() {
   slides[slideIndex-1].style.display = "block";
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 } 
+
+// conhead=document.getElementsByClassName('conhead');
+// Element.addEventListener('hover',()=>
+// {
+//   console.log("hover")
+// }
+// )
