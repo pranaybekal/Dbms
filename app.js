@@ -8,7 +8,7 @@ const multer  = require('multer')
 // const { connect } = require("./routes/register");
 // const { connecta } = require("./routes/info");
 
-// 
+//
 const app=express();
 
 // app.use(express.json());
@@ -25,9 +25,9 @@ app.use('/img', express.static(__dirname + 'public/img'))
 app.set('views', './views')
 app.set('view engine', 'ejs')
 app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
+        secret: 'secret',
+        resave: true,
+        saveUninitialized: true
 }));
 
 
@@ -36,12 +36,12 @@ app.use(session({
 // db connections
 
 // const connection = mariadb.createPool({
-//     host: '127.0.0.1', 
-//     user:'root', 
+//     host: '127.0.0.1',
+//     user:'root',
 //     password: 'password',
 //     database: 'placex',
 //     connectionLimit: 5,
-//     multipleStatements: true 
+//     multipleStatements: true
 // });
 
 
@@ -59,7 +59,7 @@ app.use(session({
 //             module.exports= connection;
 
 
-// --------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------     
 
 // routes
 
@@ -74,7 +74,6 @@ const register= require('./routes/register');
 const signup = require('./routes/signup');
 const info = require('./routes/info');
 const apply = require('./routes/apply');
-// const err404 = require('./routes/404');
 
 // const signupsuccess = require('./routes/signupsuccess')
 
@@ -97,7 +96,9 @@ app.use(function(req,res){
     res.status(404).render('404');
 });
 
-// ------------------------------------------------------------------------------------------------------------
+
+
+// ------------------------------------------------------------------------------------------------------------       
 // listen  op
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
