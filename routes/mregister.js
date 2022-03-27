@@ -60,7 +60,7 @@ router.post('/detail', function (request, response) {
         connection.query('INSERT INTO company VALUES(?,?,?)', [cname, loc, mname])
         connection.query('INSERT INTO job_category VALUES(?,?,?,?)', [jtitle, vac, cname, 'temp'])
             .then(results => {
-                connection.query('INSERT INTO job_specialization VALUES(?,?)', [jtitle, special])
+                connection.query('INSERT INTO job_specialization VALUES(?,?,?)', [jtitle, special,cname])
                 console.log(results);
                 // response.redirect('/manager/signup/success')
                 response.render('step3', { jobtitle: jtitle })
@@ -198,7 +198,7 @@ router.post('/mlogin', function (request, response) {
                         });
                     }
                     else{
-                        response.send("No Such User Found!!!")
+                        response.send("No Such User Found!!! ")
                     }})
                 }
                 
@@ -255,12 +255,49 @@ router.get('/delete-profile', (req, response) => {
                 .then(ress => {
                     connection.query("delete from cauth where cid=(?)", [req.session.username])
                         .then(resss => {
+                            req.session.destroy();
                             response.send("Profile Deleted!!!")
                         })
                 })
         })
 })
 
+
+router.get('/forget', (req, response) => {
+    response.render('mforget')
+   
+})
+
+
+
+router.post('/forget', (req, res) => {
+    var email=req.body.email;
+    var mname=req.body.mname;
+    var password=req.body.password;
+    connection.query('select * from cauth where cid=(?) AND manager_name=(?)',[email,mname])
+    .then(results=>
+        {
+            if(results.length>0)
+            {
+            bcrypt.hash(password, saltRounds, function (err, hash) {
+                // Store hash in your password DB.
+    
+    
+                connection.query('update cauth set password=(?) where cid=(?)',[hash,email])
+                .then(ress=>
+                    {
+res.send("Password Updated Successfully")
+                    })
+                })
+            
+        }
+    
+    else{
+res.send("invalid credentials")
+    }
+ 
+})
+})
 
 router.post('/sinfo', (req, res) => {
     var usn = req.body.usn;

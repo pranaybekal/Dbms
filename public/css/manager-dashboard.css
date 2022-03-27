@@ -137,7 +137,10 @@ ul li a{
   
   .content th,
   .content td {
-    padding: 12px 15px;
+
+    padding: 12px 0px;
+    justify-content: center;
+    text-align: center;
   }
   
   .content tbody tr {

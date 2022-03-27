@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const multer  = require('multer')
 
 
-// const { connect } = require("./routes/register");
+// const { connect } = require("./routes/register");0
 // const { connecta } = require("./routes/info");
 
 //
@@ -35,28 +35,28 @@ app.use(session({
 
 // db connections
 
-// const connection = mariadb.createPool({
-//     host: '127.0.0.1',
-//     user:'root',
-//     password: 'password',
-//     database: 'placex',
-//     connectionLimit: 5,
-//     multipleStatements: true
-// });
+const connection = mariadb.createPool({
+    host: '127.0.0.1',
+    user:'root',
+    password: 'password',
+    database: 'placex',
+    connectionLimit: 5,
+    multipleStatements: true
+});
 
 
 
-// connection.getConnection()
-//     .then(conn=>
-//         {
-//             console.log("Connected")
-//         })
-//         .catch(err=>
-//             {
-//                 console.log("error "+err);
-//             })
+connection.getConnection()
+    .then(conn=>
+        {
+            console.log("Connected")
+        })
+        .catch(err=>
+            {
+                console.log("error "+err);
+            })
 
-//             module.exports= connection;
+            module.exports= connection;
 
 
 // --------------------------------------------------------------------------------------------------------------     

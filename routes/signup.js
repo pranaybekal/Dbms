@@ -165,6 +165,7 @@ router.get('/delete-profile', (req, res) => {
         .then(ress => {
             connection.query("delete from auth where email=(?)", [req.session.username])
                 .then(resq => {
+                    req.session.destroy();
                     res.send("Profile Deleted Successfully")
                 })
 
@@ -182,16 +183,16 @@ router.get('/student-dashboard', (req, res) => {
                     // res.render('student-dashboard', { username: results[0].Name })
                     connection.query('SELECT * FROM company')
                         .then(results => {
-                            if ((results.length > 0)) {
-                                // console.log(results)
+                            if ((results.length >= 0)) {
+                                console.log(results)
 
-                                connection.query('SELECT * FROM Job_category ')
+                                connection.query('SELECT * FROM job_category ')
                                     .then(category => {
-                                        if (category.length > 0) {
+                                        if (category.length >= 0) {
                                             // console.log(category)
-                                            connection.query('SELECT * FROM Job_specialization')
+                                            connection.query('SELECT * FROM job_specialization')
                                                 .then(special => {
-                                                    if (special.length > 0) {
+                                                    if (special.length >= 0) {
                                                         connection.query('SELECT Usn FROM student WHERE email = ? ', [req.session.username])
                                                             .then(usn => {
                                                                 connection.query('select * from shortlisted where usn=(?)', usn[0].Usn)
@@ -199,7 +200,7 @@ router.get('/student-dashboard', (req, res) => {
 
                                                                         connection.query('select * from  company c,shortlisted s where c.Comp_name=s.Cmp_name and usn=(?)', usn[0].Usn)
                                                                             .then(cdata => {
-                                                                                // console.log(cdata);
+                                                                                // console.log(records.length);
                                                                                 res.render('student-dashboard', { username: result[0].Name, records: category, cat: category, special: special, usn: usn[0].Usn, jcount: category.length, short: short, cdata: cdata, count: count })
                                                                             })
                                                                     }
@@ -233,6 +234,40 @@ router.get('/student-dashboard', (req, res) => {
     }
 
 })
+
+router.get('/forget', (req, res) => {
+    res.render('forget')
+
+})
+
+router.post('/forget', (req, res) => {
+    var email=req.body.email;
+    var phone=req.body.phone;
+    var password=req.body.password;
+    connection.query('select * from student where Email=(?) AND Phone=(?)',[email,phone])
+    .then(results=>
+        {
+            if(results.length>0){
+            bcrypt.hash(password, saltRounds, function (err, hash) {
+                // Store hash in your password DB.
+    
+    
+                connection.query('update auth set password=(?) where email=(?)',[hash,email])
+                .then(ress=>
+                    {
+res.send("Password Updated Successfully")
+                    })
+                })
+            }
+            else
+            {
+                res.send("Invalid credentials")
+            }
+        })
+    
+    
+})
+
 
 
 router.get('/logout', (req, res) => {
@@ -282,12 +317,3 @@ router.get('/success', (req, res) => {
 })
 
 module.exports = router;
-
-// module.exports = router
-
-
-
-// ----------------------------------------------------------------------------
-// module.exports={name : 'unknown'}
-// exports.name='hello'
-
