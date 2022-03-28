@@ -1,6 +1,6 @@
 const express=require("express");
 var session = require('express-session');
-// const mariadb = require('mariadb');
+const mariadb = require('mariadb');
 const bodyParser = require('body-parser');
 const multer  = require('multer')
 
@@ -35,28 +35,27 @@ app.use(session({
 
 // db connections
 
-// const connection = mariadb.createPool({
-//     host: '127.0.0.1',
-//     user:'root',
-//     password: 'password',
-//     database: 'placex',
-//     connectionLimit: 5,
-//     multipleStatements: true
-// });
+const connection = mariadb.createPool({
+    host: 'mariadb-72933-0.cloudclusters.net',
+    user:'udi',
+    port:17330,
+    password: 'password',
+    database: 'placex'
+});
 
 
 
-// connection.getConnection()
-//     .then(conn=>
-//         {
-//             console.log("Connected")
-//         })
-//         .catch(err=>
-//             {
-//                 console.log("error "+err);
-//             })
+connection.getConnection()
+    .then(conn=>
+        {
+            console.log("Connected")
+        })
+        .catch(err=>
+            {
+                console.log("error "+err);
+            })
 
-//             module.exports= connection;
+            module.exports= connection;
 
 
 // --------------------------------------------------------------------------------------------------------------     
