@@ -39,7 +39,7 @@ const connection = mariadb.createPool({
     user:'udi',
     port:17330,
     password: 'password',
-    database: 'placex'
+    database: 'placexx'
 });
 
 
