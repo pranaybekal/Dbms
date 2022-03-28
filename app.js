@@ -10,7 +10,7 @@ const multer  = require('multer')
 
 //
 const app=express();
-
+app.use('trust proxy',1)
 // app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use(bodyParser.json());
