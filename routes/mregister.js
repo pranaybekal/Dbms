@@ -1,6 +1,6 @@
 const router = require('express').Router();
 var connection = require('../app')
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 router.get('/register', (req, res) => {
