@@ -35,14 +35,11 @@ app.use(session({
 // db connections
 
 const connection = mariadb.createPool({
-    host: 'mariadb-72933-0.cloudclusters.net',
-    user:'udi',
-    port:17330,
-    password: 'password',
-    database: 'placexx'
+    host: 'remotemysql.com',
+    user:'5v2fiZwDoB',
+    password: 'goAlmCMiYe',
+    database: '5v2fiZwDoB'
 });
-
-
 
 connection.getConnection()
     .then(conn=>

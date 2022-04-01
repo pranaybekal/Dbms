@@ -15,10 +15,14 @@ var count = 0;
 router.post('/signup', function (request, result) {
     var email = (request.body.semail);
     var password = (request.body.spassword);
+    var password2 = (request.body.spassword2);
     name = (request.body.sname);
     console.log(name)
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;  
+const found = password.match(regex);
+console.log(found);
 
-    if (email && password && name) {
+    if (email && password && found!=null && name &&password==password2) {
         bcrypt.hash(password, saltRounds, function (err, hash) {
             // Store hash in your password DB.
 
@@ -34,6 +38,14 @@ router.post('/signup', function (request, result) {
 
 
         });
+    }
+    else if(found==null)
+    {
+        result.send("Password must be of 8 characters and there should be atleast 1 capital letter and 1 number, no special characters are allowed")
+    }
+    else if(password!=password2)
+    {
+        result.send("Password and confirm password doesn't match")
     }
     else {
         result.send("no details entered")

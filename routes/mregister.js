@@ -17,9 +17,12 @@ router.post('/signup', (req, res) => {
     var cname = req.body.cname;
     var mname = req.body.mname;
     var password = req.body.password;
+    var password2 = req.body.password2;
 
-
-    if (cid && mname && password) {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;  
+    const found = password.match(regex);
+    console.log(found);
+    if (cid && mname && password && password==password2 && found!=null) {
         bcrypt.hash(password, saltRounds, function (err, hash) {
             connection.query('INSERT INTO cauth values (?,?,?,?)', [cid, mname, hash, cname])
                 .then(results => {
@@ -32,6 +35,14 @@ router.post('/signup', (req, res) => {
         })
 
 
+    }
+    else if(found==null)
+    {
+        res.send("Password must be of 8 characters and there should be atleast 1 capital letter and 1 number, no special characters are allowed")
+    }
+    else if(password!=password2)
+    {
+        res.send("Password and confirm password doesn't match")
     }
     else {
         res.send("no details entered")
