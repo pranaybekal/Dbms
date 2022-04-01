@@ -21,7 +21,12 @@ router.post('/signup', function (request, result) {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;  
 const found = password.match(regex);
 console.log(found);
-
+connection.query('select * from auth where email=(?)',[email])
+.then(resss=>
+    {
+if(resss.length<=0)
+{
+    
     if (email && password && found!=null && name &&password==password2) {
         bcrypt.hash(password, saltRounds, function (err, hash) {
             // Store hash in your password DB.
@@ -50,6 +55,12 @@ console.log(found);
     else {
         result.send("no details entered")
     }
+}
+else
+{
+result.send("User with that mail already exists!")
+}
+})
 
 })
 

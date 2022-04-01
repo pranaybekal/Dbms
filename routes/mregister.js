@@ -19,6 +19,15 @@ router.post('/signup', (req, res) => {
     var password = req.body.password;
     var password2 = req.body.password2;
 
+
+    connection.query('select * from cauth where cid=(?)',[cid])
+    .then(resss=>
+        {
+
+            if(resss.length<=0)
+            {
+
+        
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;  
     const found = password.match(regex);
     console.log(found);
@@ -47,6 +56,12 @@ router.post('/signup', (req, res) => {
     else {
         res.send("no details entered")
     }
+}
+else{
+    res.send("User with that mail already exists!")
+}
+})
+
 })
 
 
