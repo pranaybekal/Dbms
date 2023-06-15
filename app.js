@@ -35,10 +35,10 @@ app.use(session({
 // db connections
 
 const connection = mariadb.createPool({
-    host: 'remotemysql.com',
-    user:'vZOUgF2Mzp',
-    password: '88vmc4zQKg',
-    database: 'vZOUgF2Mzp'
+    host: '127.0.0.1',
+    user:'root',
+    password: 'pranay',
+    database: 'placex' 
 });
 
 
